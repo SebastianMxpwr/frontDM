@@ -1,0 +1,25 @@
+<ion-content>
+  <div class="top"></div>
+  <div class="login">
+    <div class="L_h1">
+      <h1>Login</h1>
+    </div>
+    <form #frmlogin="ngForm" (ngSubmit)="logints(frmlogin)">
+      <div class="User">
+        <ion-item class="l_User">
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input name="strNombreUsuario" ngModel required></ion-input>
+        </ion-item>
+      </div>
+      <div class="Password">
+        <ion-item class="l_Pass">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" name="strPassword" ngModel required></ion-input>
+        </ion-item>
+      </div>
+      <ion-button class="button_L" type="submit"><ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
+    </form>
+  </div>
+</ion-content>
+<div class="bottom"></div>
+

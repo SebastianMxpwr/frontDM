@@ -1,15 +1,14 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Bienvenido {{usuarioS.usuarioNombre}}
+      Bienvenido {{usuarioS.usuarioNombre}} 
       <ion-button (click)="logout()" id='logout'>Logout</ion-button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content >
+<ion-content>
   <div id=register>
-    <form #frmProdU="ngForm" (ngSubmit)="onRegister(frmProdU)" >
+    <form #frmProdAd="ngForm" (ngSubmit)="onRegister(frmProdAd)">
       <ion-item class="register_input_plus">
         <ion-label position="stacked">Nombre</ion-label>
         <ion-input  type="text" name="strNombre" placeholder="Nombre del producto" ngModel required></ion-input>
@@ -17,7 +16,7 @@
     
       <ion-item class="register_input">
         <ion-label position="stacked">Cantidad</ion-label>
-        <ion-input  type="number" name="nmbExistencia" placeholder="Cuantos son?" ngModel required></ion-input>
+        <ion-input  type="number" name="nmbExistencia" placeholder="Cuantos son" ngModel required></ion-input>
       </ion-item>
     
       <ion-item class="register_input">
@@ -31,12 +30,11 @@
       </ion-item>
 
       <!-- <ion-item class="register_input_plus_plus">
-        <ion-label position="fixed">imagen del Papu</ion-label>
+        <ion-label position="fixed">imagen</ion-label>
         <ion-input></ion-input>
       </ion-item> -->
 
       <ion-button class="button_add" type="submit"><ion-icon name="add-outline"></ion-icon></ion-button>
   </form>
   </div>
-
 </ion-content>

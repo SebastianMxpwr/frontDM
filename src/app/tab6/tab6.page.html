@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Conusltas.</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1>Productos</h1>
+  <div class="Productos">
+    <ion-card *ngFor="let productos of productoS.producto">
+      <ion-card-header>
+        <ion-card-title>Nombre: {{productos.strNombre}}</ion-card-title>
+        <ion-card-subtitle>Precio: {{productos.nmbPrecio}}</ion-card-subtitle>
+        <ion-card-subtitle>Existencias: {{productos.nmbExistencia}}</ion-card-subtitle>
+        <p>Descripcion: {{productos.strDescripcion}}</p>
+      </ion-card-header>
+      <ion-button style="float: right;" color="danger" (click)="deleteProductos(productos._id)">Borrar</ion-button>
+    </ion-card>
+  
+    <div *ngIf="productoS.producto?.length==0" style="margin-top: 20px;">
+      <h1 color='primary'>No hay productos</h1>
+    </div>
+  </div>
+
+  <div class="Usuarios">
+    <h1>Usuarios</h1>
+    <ion-card *ngFor="let usuarios of usuarioS.usuario">
+      <ion-card-header>
+        <ion-card-title>Nombre: {{usuarios.strNombreUsuario}}</ion-card-title>
+        <ion-card-subtitle>Tipo de Usuario: {{usuarios.strTipoUsuario}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-button style="float: right;" color="danger" (click)="deleteUsuario(usuarios._id)">Borrar</ion-button>
+    </ion-card>
+  
+    <div *ngIf="usuarioS.usuario?.length==0" style="margin-top: 20px;">
+      <h1 color='primary'>No hay usuarios registrados</h1>
+    </div>
+  </div>
+</ion-content>

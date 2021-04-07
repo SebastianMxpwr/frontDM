@@ -1,0 +1,72 @@
+ion-content{
+    --background: rgb(175, 191, 218);
+    
+}
+
+.login{
+    top: 15%;
+    position: relative;
+}
+
+.L_h1{
+    color: black;
+    font-size: 28px;
+    text-align: center;
+    position:relative;
+    top: -30px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.User{
+    position: relative;
+    width: 75%;
+}
+
+.l_User{
+    --background: white;
+    --color: black;
+    font-size: 20px;
+    border-top-right-radius: 400px  ;
+    --placeholder-font-style:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Password{
+    position: relative;
+    width: 75%; 
+}
+
+.l_Pass{
+    --background: white;
+    --color: black;
+    font-size: 20px;
+    border-bottom-right-radius: 400px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.button_L{
+    position: relative;
+    left: 65%;
+    top: -105px;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+    --border-radius: 100%;
+    --background: rgb(31, 77, 204);
+}
+
+.top{
+    position: relative;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 0, 100% 30%, 70% 30%, 30% 70%, 0 100%, 0 0);    
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(150deg, rgb(97, 197, 228), rgb(41, 129, 157));
+}
+
+.bottom{
+    position:relative;
+    clip-path: polygon(30% 70%, 70% 30%, 100% 0, 100% 100%, 70% 100%, 30% 100%, 0 100%, 0 70%);    
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(150deg, rgb(199, 79, 214), rgb(138, 40, 151));
+
+}

@@ -1,24 +1,26 @@
-import { Component } from '@angular/core';
-import { ProductoService } from '../Services/producto.service'
-import { UsuarioService } from '../Services/usuario.service'
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProductoService} from '../Services/producto.service'
+import { UsuarioService } from '../Services/usuario.service'
 import { AlertController } from '@ionic/angular'
 
 
-
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-tab4',
+  templateUrl: './tab4.page.html',
+  styleUrls: ['./tab4.page.scss'],
 })
-export class Tab1Page {
+export class Tab4Page implements OnInit {
 
   constructor(
     public activeR: ActivatedRoute, 
     public router: Router, 
-    public productoS: ProductoService, 
+    public productoS: ProductoService,
     public alertController: AlertController,
-    public usuarioS: UsuarioService) {}
+    public usuarioS: UsuarioService) { }
+
+  ngOnInit() {
+  }
 
   onRegister(form){
     this.productoS.register(form.value).subscribe(async res=>{
@@ -31,9 +33,10 @@ export class Tab1Page {
     }), err=>{
       console.log(err)
     }
-
   }
+
   logout(){
     this.router.navigate(['/'])
   }
+  
 }

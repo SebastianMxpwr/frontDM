@@ -1,17 +1,26 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Producto/s
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-content [fullscreen]="true">
+    <h1>Productos</h1>
+    <div class="Productos">
+      <ion-card *ngFor="let productos of productoS.producto">
+        <ion-card-header>
+          <ion-card-title>Nombre: {{productos.strNombre}}</ion-card-title>
+          <ion-card-subtitle>Precio: {{productos.nmbPrecio}}</ion-card-subtitle>
+          <ion-card-subtitle>Existencias: {{productos.nmbExistencia}}</ion-card-subtitle>
+          <p>Descripcion: {{productos.strDescripcion}}</p>
+          <ion-button style="float: right;" color="danger" (click)="deleteProductos(productos._id)">Borrar</ion-button>
+        </ion-card-header>
+      </ion-card>
+    
+      <div *ngIf="productoS.producto?.length==0" style="margin-top: 20px;">
+        <h1 color='primary'>No hay productos</h1>
+      </div>
+    </div>
 </ion-content>

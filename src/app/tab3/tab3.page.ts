@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor(public activeR: ActivatedRoute, public router: Router) {}
 
+  logout(){
+    this.router.navigate(['/'])
+  }
 }
