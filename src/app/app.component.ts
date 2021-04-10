@@ -18,9 +18,10 @@ export class AppComponent {
         queryParams:{
           usuarioNombreJ: infoUserJson.usuarioNombre
         }
+        
       }
+      this.usuarioS.usuarioNombre = infoUserJson.usuarioNombre
       if(infoUserJson.userType == "Admin" || infoUserJson.userType == "admin"){
-        this.usuarioS.usuarioNombre = infoUserJson.usuarioNombre
         router.navigate(['/tabs2/tab4', navExtras])
       }else{
         this.usuarioS.usuarioNombre = infoUserJson.usuarioNombre
