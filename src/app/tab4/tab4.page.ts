@@ -30,13 +30,18 @@ export class Tab4Page implements OnInit {
         buttons: ['OK']
       });
       await alert.present();
-    }), err=>{
-      console.log(err)
+    }), async err=>{
+      const alert = await this.alertController.create({
+        header: 'Exito',
+        message: 'hubo un error',
+        buttons: ['OK']
+      });
+      await alert.present();
     }
   }
 
   logout(){
-    this.router.navigate(['/'])
+    this.usuarioS.logout()
   }
   
 }

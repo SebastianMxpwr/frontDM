@@ -7,5 +7,15 @@
 </ion-header>
 
 <ion-content>
-  <p>No hay productos</p>
+  <ion-input type="text" placeholder="Digite su texto" [(ngModel)]="datocodificado"></ion-input>
+  <ion-button expand="block" (click)="codificarTexto()">Generar Código</ion-button>
+
+  <ion-button expand="block" color="success" (click)="leerCode()">Scannear Código</ion-button>
+
+  <div *ngIf="datosEscaneados">
+    <p>
+        Contenido obtenido: <b>{{datosEscaneados["text"]}}</b>
+    </p>
+</div>
+
 </ion-content>

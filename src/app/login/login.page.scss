@@ -1,6 +1,7 @@
 ion-content{
     --background: rgb(175, 191, 218);
     
+    
 }
 
 .login{
@@ -63,10 +64,11 @@ ion-content{
 }
 
 .bottom{
-    position:relative;
     clip-path: polygon(30% 70%, 70% 30%, 100% 0, 100% 100%, 70% 100%, 30% 100%, 0 100%, 0 70%);    
     width: 100%;
     height: 150px;
     background: linear-gradient(150deg, rgb(199, 79, 214), rgb(138, 40, 151));
+    position: absolute;
+    bottom: 0px
 
 }

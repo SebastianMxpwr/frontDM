@@ -1,5 +1,7 @@
 {
   "name": "login_practica",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

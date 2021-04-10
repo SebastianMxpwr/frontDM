@@ -4,6 +4,9 @@ import { User } from '../models/user_model'
 import { tap } from 'rxjs/operators'
 import { JwtResponseU } from '../models/JwtResponseU'
 import { Observable, BehaviorSubject } from 'rxjs'
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
 
 
 
@@ -17,7 +20,7 @@ export class UsuarioService {
   usuario: any
   usuarioTipo: string
   usuarioNombre: string
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public alertController: AlertController, public router: Router) {
     this.usuario=[]
   }
 
@@ -27,7 +30,22 @@ export class UsuarioService {
       if (res){
         this.usuarioTipo = res.datosUsuario.strTipoUsuario
         this.usuarioNombre = res.datosUsuario.strNombreUsuario
+
+        let infoSUer={
+          userName: this.usuarioNombre,
+          userType: this.usuarioTipo
+        }
+
+        localStorage.setItem('infoUser', JSON.stringify(infoSUer))
+        
       }
+    }, async err=>{
+      const alert = await this.alertController.create({
+        header: 'Error',
+        message: 'las credenciales no coinciden',
+        buttons: ['Ta weno']
+      });
+      await alert.present();
     }))
   }
 
@@ -49,5 +67,10 @@ export class UsuarioService {
   deleteUsuarios(_id: string){
     return this.http.delete(`${this.url}/api/del/usuarios/` + `${_id}`)
   
+  }
+
+  logout(){
+    localStorage.removeItem('infoUser')
+    this.router.navigate(['/'])
   }
 }

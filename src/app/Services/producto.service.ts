@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Producto } from '../models/producto_model'
+import { AlertController } from '@ionic/angular';
 
 
 
@@ -12,7 +13,7 @@ export class ProductoService {
   producto: any
   Producto: Producto
 
-constructor(public http: HttpClient) {
+constructor(public http: HttpClient, public alertController: AlertController) {
   this.producto = []
 }
 

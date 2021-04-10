@@ -10,32 +10,23 @@ import { UsuarioService } from './services/usuario.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {
-  //   if(window.localStorage !== undefined){
-  //     if(window.localStorage.getItem('infoEmpleado')){
-  //       let infoUser= localStorage.getItem('infoEmpleado')
-  //       let infoUserJson = JSON.parse(infoUser)
-  //       let navExtras: NavigationExtras={
-  //         queryParams:{
-  //           userName:infoUserJson.userName
-  //         }
-  //       }
-  //       this.usuarioService.user = infoUserJson.userName
-  //       router.navigate(['/tabs/tab1'], navExtras)
-
-  //     } else if (window.localStorage.getItem('infoAdmin')){
-  //       let infoAdmin= localStorage.getItem('infoAdmin')
-  //       let infoUserJson = JSON.parse(infoAdmin)
-  //       let navExtras: NavigationExtras={
-  //         queryParams:{
-  //           userName:infoUserJson.userName
-  //         }
-  //       }
-  //       this.adminService.user = infoUserJson.userName
-  //       router.navigate(['/tabs2/tab4'], navExtras)
-  //     }
-  //   }else{
-  //     router.navigate(['/'])
-  //   }
+  constructor(public router: Router, public usuarioS: UsuarioService) {
+      let infoget = localStorage.getItem('infoUser')
+      let infoUserJson = JSON.parse(infoget)
+    if(infoget != undefined || infoget != null){
+      let navExtras: NavigationExtras={
+        queryParams:{
+          usuarioNombreJ: infoUserJson.usuarioNombre
+        }
+      }
+      if(infoUserJson.userType == "Admin" || infoUserJson.userType == "admin"){
+        this.usuarioS.usuarioNombre = infoUserJson.usuarioNombre
+        router.navigate(['/tabs2/tab4', navExtras])
+      }else{
+        this.usuarioS.usuarioNombre = infoUserJson.usuarioNombre
+        router.navigate(['/tabs/tab1', navExtras])
+      }
+      
+    }
   }
 }

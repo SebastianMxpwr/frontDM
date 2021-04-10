@@ -34,6 +34,6 @@ export class Tab1Page {
 
   }
   logout(){
-    this.router.navigate(['/'])
+    this.usuarioS.logout()
   }
 }

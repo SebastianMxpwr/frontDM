@@ -32,7 +32,7 @@ public user: User
           });
           await alert.present();
           this.router.navigate(['/tabs2/tab4'])
-        }else{
+        }else if(this.usuarioService.usuarioTipo == 'Trabajador' || this.usuarioService.usuarioTipo == 'Normal'){
           const alert = await this.alertController.create({
             header: 'Exito',
             message: 'Se logeo con exito',
@@ -41,13 +41,6 @@ public user: User
           await alert.present();
           this.router.navigate(['/tabs/tab1'])
         }
-      }else{
-        const alert = await this.alertController.create({
-          header: 'Error',
-          message: 'las credenciales no coinciden ',
-          buttons: ['Ta weno']
-        });
-        await alert.present();
       }
     })
   }
